@@ -19,7 +19,7 @@ class ProfileDetailsWidget extends StatelessWidget {
     return Consumer<ProfileProvider>(
       builder: (context, profileProvider, _) {
         final bool showWallet = Provider.of<SplashProvider>(context, listen: false).configModel?.walletStatus ?? false;
-        final bool showReferAndEarn = (Provider.of<SplashProvider>(context, listen: false).configModel?.referEarnStatus ?? false) && (profileProvider.userInfoModel?.referCode?.isNotEmpty ?? false);
+        final bool showReferAndEarn = (Provider.of<SplashProvider>(context, listen: false).configModel?.referEarnStatus ?? false);
 
         return profileProvider.isLoading
             ? CustomLoaderWidget(color: Theme.of(context).primaryColor)

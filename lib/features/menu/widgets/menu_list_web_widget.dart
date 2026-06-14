@@ -75,7 +75,7 @@ class MenuListWebWidget extends StatelessWidget {
           child: Center(
             child: Consumer<ProfileProvider>(
               builder: (context, profileProvider, child) {
-                if ((splashProvider.configModel?.referEarnStatus ?? false) && profileProvider.userInfoModel?.referCode != null) {
+                if (splashProvider.configModel?.referEarnStatus ?? false) {
                   final MenuModel referMenu = MenuModel(icon: Images.referralIcon, title: getTranslated('referAndEarn', context), route: () => RouteHelper.getReferAndEarnRoute());
                   menuList.removeWhere((menu) => menu.route == referMenu.route);
                   menuList.insert(6, referMenu);
