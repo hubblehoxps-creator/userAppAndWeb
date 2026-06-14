@@ -1,6 +1,6 @@
 # Opencode Project Context
 
-Before scanning the whole repository, use the existing project knowledge graph.
+CRITICAL MANDATE: Before scanning the whole repository, planning any task, or taking any action, you MUST FIRST use the existing project knowledge graph. If graphify does not have the answer, ONLY THEN are you allowed to do your own raw searching (grep, list_dir, etc).
 
 Required startup workflow:
 
