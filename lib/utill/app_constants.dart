@@ -13,7 +13,7 @@ class AppConstants {
   static const String fontFamily = 'Poppins';
   // static const String baseUrl = 'https://oleyshop.com/admin';
   static const String baseUrl =
-      'https://8pjyoc-ip-106-219-234-72.tunnelmole.net';
+      'https://lszekj-ip-42-108-64-16.tunnelmole.net';
   static const String webHostUrl = 'https://oleyshop.com';
   static const String googleServerClientId =
       '977728681518-d349j92n47l8m4eksmfg1a8deid6sqsu.apps.googleusercontent.com';

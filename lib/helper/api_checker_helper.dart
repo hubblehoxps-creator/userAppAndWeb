@@ -14,39 +14,40 @@ import 'package:provider/provider.dart';
 class ApiCheckerHelper {
   static void checkApi(ApiResponseModel apiResponse) {
     ErrorResponseModel error = getError(apiResponse);
+    final Errors firstError = error.errors!.first;
+    final bool isUnauthorized =
+        firstError.code == '401' || firstError.code == 'auth-001';
+    final bool isLoginRoute =
+        ModalRoute.of(Get.context!)?.settings.name == RouteHelper.login;
 
-    if((error.errors?[0].code == '401' || error.errors![0].code == 'auth-001' &&  ModalRoute.of(Get.context!)?.settings.name != RouteHelper.login)) {
-      Provider.of<SplashProvider>(Get.context!, listen: false).removeSharedData();
+    if (isUnauthorized && !isLoginRoute) {
+      Provider.of<SplashProvider>(
+        Get.context!,
+        listen: false,
+      ).removeSharedData();
       Provider.of<SplashProvider>(Get.context!, listen: false).setPageIndex(0);
       RouteHelper.getLoginRoute(action: RouteAction.push);
-    }else {
-      showCustomSnackBarHelper(getTranslated(error.errors?.first.message, Get.context!));
+    } else {
+      showCustomSnackBarHelper(getTranslated(firstError.message, Get.context!));
     }
   }
 
-  static ErrorResponseModel getError(ApiResponseModel apiResponse){
-    ErrorResponseModel error;
-
-    try{
-      error = ErrorResponseModel.fromJson(apiResponse);
-    }catch(e){
-      if(apiResponse.error != null){
-        error = ErrorResponseModel.fromJson(apiResponse.error);
-      }else{
-        error = ErrorResponseModel(errors: [Errors(code: '', message: apiResponse.error.toString())]);
-      }
-    }
-    return error;
+  static ErrorResponseModel getError(ApiResponseModel apiResponse) {
+    return ErrorResponseModel.fromJson(apiResponse.error);
   }
 
-  static Future<String> getStreamedResponseError(http.StreamedResponse response) async {
+  static Future<String> getStreamedResponseError(
+    http.StreamedResponse response,
+  ) async {
     String errorMessage = '${response.statusCode} ${response.reasonPhrase}';
 
     try {
       String responseBody = await response.stream.bytesToString();
       Map<String, dynamic> responseMap = jsonDecode(responseBody);
 
-      ErrorResponseModel errorResponse = ErrorResponseModel.fromJson(responseMap);
+      ErrorResponseModel errorResponse = ErrorResponseModel.fromJson(
+        responseMap,
+      );
 
       if (errorResponse.errors != null && errorResponse.errors!.isNotEmpty) {
         errorMessage = errorResponse.errors!.first.message ?? errorMessage;
@@ -57,5 +58,4 @@ class ApiCheckerHelper {
 
     return errorMessage;
   }
-
 }
