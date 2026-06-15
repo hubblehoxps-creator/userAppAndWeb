@@ -110,7 +110,7 @@ class MenuListWebWidget extends StatelessWidget {
                                           const SizedBox(height: 80),
 
                                           Text(
-                                            getTranslated('guest', context),
+                                            getTranslated('welcome', context),
                                             style: poppinsRegular.copyWith(fontSize: Dimensions.fontSizeExtraLarge, color: Theme.of(context).textTheme.bodyLarge?.color?.withValues(alpha: 0.6)),
                                           ),
                                         ],

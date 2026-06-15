@@ -145,7 +145,7 @@ class _ExistingAccountBottomSheetState extends State<ExistingAccountBottomSheet>
                           password: null,
                         ),
                       );
-                      RouteHelper.getMainRoute(action: RouteAction.pushNamedAndRemoveUntil);
+                      RouteHelper.getRouteAfterLogin();
                     }
                   });
                 }

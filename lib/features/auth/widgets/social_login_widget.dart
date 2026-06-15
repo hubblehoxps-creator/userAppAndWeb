@@ -42,7 +42,7 @@ class _SocialLoginWidgetState extends State<SocialLoginWidget> {
   ) async {
     if (isRoute) {
       if (token != null) {
-        RouteHelper.getMainRoute(action: RouteAction.pushNamedAndRemoveUntil);
+        RouteHelper.getRouteAfterLogin();
       } else if (tempToken != null) {
         RouteHelper.getOtpRegistration(
           tempToken,

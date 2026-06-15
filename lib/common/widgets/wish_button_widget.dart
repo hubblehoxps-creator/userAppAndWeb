@@ -27,7 +27,7 @@ class WishButtonWidget extends StatelessWidget {
               wishList.wishIdList.contains(product!.id) ? wishList.removeFromWishList(product!, context)
                   : wishList.addToWishList(product!,context);
             }else{
-              showCustomSnackBarHelper(getTranslated('now_you_are_in_guest_mode', context));
+              showCustomSnackBarHelper(getTranslated('please_login_first', context));
             }
         
           },

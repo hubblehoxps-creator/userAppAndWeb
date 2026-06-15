@@ -43,7 +43,7 @@ class _OnlySocialLoginWidgetState extends State<OnlySocialLoginWidget> {
   ) async {
     if (isRoute) {
       if (token != null) {
-        RouteHelper.getMainRoute(action: RouteAction.pushNamedAndRemoveUntil);
+        RouteHelper.getRouteAfterLogin();
       } else if (tempToken != null) {
         RouteHelper.getOtpRegistration(
           tempToken,
@@ -517,62 +517,6 @@ class _OnlySocialLoginWidgetState extends State<OnlySocialLoginWidget> {
                                 const SizedBox(
                                   height: Dimensions.paddingSizeLarge,
                                 ),
-                              ],
-
-                              if (configModel?.isGuestCheckout == true &&
-                                  !Navigator.canPop(context)) ...[
-                                Center(
-                                  child: Text(
-                                    getTranslated('or', context),
-                                    style: poppinsRegular.copyWith(
-                                      fontSize: Dimensions.fontSizeDefault,
-                                      color: Theme.of(context).hintColor,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: Dimensions.paddingSizeSmall,
-                                ),
-
-                                ///login
-                                Center(
-                                  child: InkWell(
-                                    onTap: () => RouteHelper.getMainRoute(
-                                      action:
-                                          RouteAction.pushNamedAndRemoveUntil,
-                                    ),
-                                    child: RichText(
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text:
-                                                '${getTranslated('continue_as_a', context)} ',
-                                            style: poppinsRegular.copyWith(
-                                              fontSize:
-                                                  Dimensions.fontSizeSmall,
-                                              color: Theme.of(
-                                                context,
-                                              ).hintColor,
-                                            ),
-                                          ),
-
-                                          TextSpan(
-                                            text: getTranslated(
-                                              'guest',
-                                              context,
-                                            ),
-                                            style: poppinsRegular.copyWith(
-                                              color: Theme.of(
-                                                context,
-                                              ).primaryColor,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: size.height * 0.03),
                               ],
                             ],
                           ),

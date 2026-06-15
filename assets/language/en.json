@@ -194,6 +194,7 @@
   "guest": "Guest",
   "guest_mode": "Guest Mode",
   "now_you_are_in_guest_mode": "Now you are in guest mode \n Please login first to enjoy awesome features",
+  "please_login_first": "Please login first to enjoy awesome features",
   "OR": "Or",
   "added_to_cart": "Added to cart",
   "invalid_code_or_failed": "Invalid code or failed to get discount",

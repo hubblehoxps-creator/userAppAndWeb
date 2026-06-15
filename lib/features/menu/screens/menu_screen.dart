@@ -131,7 +131,7 @@ class MenuWidget extends StatelessWidget {
                                       ? Theme.of(context).textTheme.bodyLarge?.color?.withValues(alpha: 0.6)
                                       : ResponsiveHelper.isDesktop(context)? ColorResources.getDarkColor(context): Theme.of(context).canvasColor,),
                                 ) : Container(height: 10, width: 150, color: ResponsiveHelper.isDesktop(context)? ColorResources.getDarkColor(context): Theme.of(context).canvasColor) : Text(
-                                  getTranslated('guest', context),
+                                  getTranslated('welcome', context),
                                   style: poppinsRegular.copyWith( color: Provider.of<ThemeProvider>(context).darkTheme
                                       ? Theme.of(context).textTheme.bodyLarge?.color?.withValues(alpha: 0.6)
                                       : ResponsiveHelper.isDesktop(context)? ColorResources.getDarkColor(context): Theme.of(context).canvasColor,),

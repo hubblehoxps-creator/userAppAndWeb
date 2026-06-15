@@ -33,14 +33,14 @@ class NotLoggedInWidget extends StatelessWidget {
                   SizedBox(height: MediaQuery.of(context).size.height*0.03),
 
                   Text(
-                    'guest_mode'.tr,
+                    'login_or_signup'.tr,
                     style: poppinsRegular.copyWith(fontSize: MediaQuery.of(context).size.height*0.023),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height*0.02),
 
                   Text(
-                    'now_you_are_in_guest_mode'.tr,
+                    'log_in_or_sign_up_to_continue_and_enjoy'.tr,
                     style: poppinsRegular.copyWith(fontSize: MediaQuery.of(context).size.height*0.0175),
                     textAlign: TextAlign.center,
                   ),
